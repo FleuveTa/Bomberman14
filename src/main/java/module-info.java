@@ -7,4 +7,6 @@ module com.example.bomberm4n {
 
     opens com.example.bomberm4n to javafx.fxml;
     exports com.example.bomberm4n;
+    exports com.example.bomberm4n.GameControl;
+    opens com.example.bomberm4n.GameControl to javafx.fxml;
 }
