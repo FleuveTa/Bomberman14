@@ -2,6 +2,7 @@ package com.example.bomberm4n.scene;
 
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.model.BomSubScene;
 import com.example.bomberm4n.scene.model.gameButton;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -33,6 +34,12 @@ public class MainScene {
     private List<gameButton> menuButton;
 
 
+    private BomSubScene helpScene;
+    private BomSubScene creditScene;
+
+    private BomSubScene scenceToHide;
+
+
     public MainScene() {
         menuButton = new ArrayList<>();
         mainPane = new AnchorPane();
@@ -41,6 +48,7 @@ public class MainScene {
         mainStage.setScene(mainScene);
         createBackground();
         createButton();
+        createSubScene();
 
 
     }
@@ -65,6 +73,14 @@ public class MainScene {
         button.setLayoutY(MENU_BUTTON_START_Y + menuButton.size()*70);
         menuButton.add(button);
         mainPane.getChildren().add(button);
+    }
+
+
+    private void createSubScene() {
+        helpScene = new BomSubScene();
+        mainPane.getChildren().add(helpScene);
+        creditScene = new BomSubScene();
+        mainPane.getChildren().add(creditScene);
     }
 
     private void createButton() {
@@ -94,7 +110,7 @@ public class MainScene {
         helpButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                    helpScene.moveScene();
             }
         });
     }
@@ -106,7 +122,7 @@ public class MainScene {
         creditButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                    creditScene.moveScene();
             }
         });
     }
