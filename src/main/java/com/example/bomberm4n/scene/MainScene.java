@@ -59,7 +59,7 @@ public class MainScene {
 
     private void createBackground()  {
         try {
-            String url = MainScene.class.getResource("/assets/menu/newBackground.png").toURI().toString();
+            String url = MainScene.class.getResource("/assets/menu/img.png").toURI().toString();
             Image backgroundImage = new Image(url, 480, 464, false, true);
             BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
             mainPane.setBackground(new Background(background));

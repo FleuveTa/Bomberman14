@@ -2,6 +2,7 @@ package com.example.bomberm4n.GameControl;
 
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.model.PauseButton;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -9,6 +10,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -21,10 +23,13 @@ import static com.example.bomberm4n.BomGame.*;
 public class Game {
     private Map map;
     private Canvas canvas;
+
     private GraphicsContext gc;
     private Group root;
     private Scene gameScene;
     private List<Text> textList;
+
+    private PauseButton pauseButton;
 
     public Game() {
         map = new Map();
@@ -32,15 +37,22 @@ public class Game {
         canvas = new Canvas(BomGame.WIDTH * Sprite.SCALED_SIZE,
                 BomGame.HEIGHT * Sprite.SCALED_SIZE + GAME_OFFSET);
         gc = canvas.getGraphicsContext2D();
-
         textList = new ArrayList<>();
-        // Tao root container
+        pauseButton = new PauseButton();
+        pauseButton.setFocusTraversable(false);
+
         root = new Group();
+
         root.getChildren().add(canvas);
         root.getChildren().addAll(textList);
+        root.getChildren().add(pauseButton);
+
+        // Tao root container
+
 
         // Tao scene
         gameScene = new Scene(root);
+
         gameScene.setFill(Color.web("010017", 1.0));
     }
 

@@ -15,9 +15,18 @@ public class gameScene {
         game = new Game();
         game.render();
         gameStage = new Stage();
-        gameStage.setScene(game.getGameScene());
-        loop();
         game.handleEvent();
+        gameStage.setScene(game.getGameScene());
+
+        AnimationTimer timer = new AnimationTimer() {
+            @Override
+            public void handle(long l) {
+                game.render();
+                game.update();
+            }
+        };
+        timer.start();
+
     }
 
     public void loop() {

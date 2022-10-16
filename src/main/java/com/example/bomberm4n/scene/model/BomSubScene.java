@@ -41,9 +41,21 @@ public class BomSubScene extends SubScene {
         }
     }
 
+    private static final String enterCloseUrl;
+
+    static {
+        try {
+            enterCloseUrl = BomSubScene.class.getResource("/assets/mobs/SubScene/EnterButton.png").toURI().toString();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private static final String CLOSE_BUTTON_CLICK_FONT = "-fx-background-color: transparent; -fx-background-image: url(" + closeClickUrl + ")";
 
     private static final String CLOSE_BUTTON_FONT = "-fx-background-color: transparent; -fx-background-image: url(" + closeUrl + ")";
+
+    private static final String ENTER_CLOSE_BUTTON_FONT = "-fx-background-color: transparent; -fx-background-image: url(" + enterCloseUrl + ")";
 
     public BomSubScene() {
         super(new AnchorPane(), 455, 298);
@@ -116,6 +128,7 @@ public class BomSubScene extends SubScene {
             @Override
             public void handle(MouseEvent event) {
                 button.setEffect(new DropShadow());
+                button.setStyle(ENTER_CLOSE_BUTTON_FONT);
             }
         });
 
@@ -123,6 +136,7 @@ public class BomSubScene extends SubScene {
             @Override
             public void handle(MouseEvent event) {
                 button.setEffect(null );
+                button.setStyle(CLOSE_BUTTON_FONT);
             }
         });
     }
