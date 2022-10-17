@@ -18,7 +18,7 @@ public class Boom extends Entity {
     private int timeAfter = 20;
     private int animate;
     private final List<Flame> flames = new ArrayList<>();
-    private boolean canPass = false;
+    private boolean canPass = true;
 
     public Boom(int xUnit, int yUnit, Image img, Map map) {
         super(xUnit, yUnit, img, map);
@@ -67,15 +67,15 @@ public class Boom extends Entity {
 
     @Override
     public boolean collision(Entity e) {
-        if (e instanceof Player) {
-            int diffX = e.getX() - this.getX();
-            int diffY = e.getY() - this.getY();
-            if (!(diffX > -e.getBoundary().getWidth() - 6 - 1 && diffX < Sprite.SCALED_SIZE - 6
-                    && diffY > -e.getBoundary().getHeight() - 6 - 1 && diffY < Sprite.SCALED_SIZE - 6)) {
-                canPass = true;
-            }
-            return canPass;
-        }
+//        if (e instanceof Player) {
+//            int diffX = e.getX() - this.getX();
+//            int diffY = e.getY() - this.getY();
+//            if (!(diffX > -e.getBoundary().getWidth() - 6 - 1 && diffX < Sprite.SCALED_SIZE - 6
+//                    && diffY > -e.getBoundary().getHeight() - 6 - 1 && diffY < Sprite.SCALED_SIZE - 6)) {
+//                canPass = true;
+//            }
+//            return canPass;
+//        }
         if (e instanceof Flame) {
             timeToExplode = 0;
         }

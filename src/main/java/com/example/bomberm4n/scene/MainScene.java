@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.bomberm4n.BomGame.GAME_OFFSET;
 
@@ -57,12 +58,12 @@ public class MainScene {
 
     private void createBackground()  {
         try {
-            String url = MainScene.class.getResource("/assets/menu/img.png").toURI().toString();
+            String url = Objects.requireNonNull(MainScene.class.getResource("/assets/menu/img.png")).toURI().toString();
             Image backgroundImage = new Image(url, 480, 464, false, true);
             BackgroundImage background = new BackgroundImage(backgroundImage, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, null);
             mainPane.setBackground(new Background(background));
         } catch (Exception e) {
-
+            System.out.println(e.getMessage());
         }
     }
 

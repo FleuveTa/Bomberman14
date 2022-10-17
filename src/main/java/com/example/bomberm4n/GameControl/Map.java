@@ -20,9 +20,9 @@ public class Map {
 
     public static int BOMB_AT_TIME = 1;
 
-    public static int PLAYER_SPEED = 3;
+    public static int PLAYER_SPEED = 2;
 
-    public static int FLAME_LENGTH = 1;
+    public static int FLAME_LENGTH = 10;
 
     private List<Mobile> mobiles = new ArrayList<>();
 

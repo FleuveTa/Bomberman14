@@ -11,6 +11,7 @@ import javafx.scene.text.Font;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class gameButton extends Button {
 
@@ -37,7 +38,15 @@ public class gameButton extends Button {
     private static final String PRESSED_BUTTON_FONT = "-fx-background-color: transparent; -fx-background-image: url(" + pressedUrl + ")";
     private static final String FREE_BUTTON_FONT = "-fx-background-color: transparent; -fx-background-image: url(" + freeUrl + ")";
 
-    private static final String TEXT_FONT = "C:\\Users\\USER\\Documents\\GitHub\\Bomberman14\\src\\main\\resources\\assets\\mobs\\button\\Mr. JUNKER MSX.ttf";
+    private static final String TEXT_FONT;
+
+    static {
+        try {
+            TEXT_FONT = Objects.requireNonNull(gameButton.class.getResource("/assets/mobs/button/Mr. JUNKER MSX.ttf")).toURI().toString();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public gameButton(String text) {
         setText(text);

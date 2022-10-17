@@ -63,20 +63,21 @@ public class Level {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 switch (mapMatrix[i][j]) {
-                    case '#': {
-                        tiles[i][j] = new Wall(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.wall.getFxImage(), map);
+                    case '#' -> {
+                        tiles[i][j] = new Wall(j * Sprite.SCALED_SIZE,i * Sprite.SCALED_SIZE, Sprite.wall.getFxImage(), map);
                         break;
                     }
-                    case 'p': {
+                    case 'p' -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         map.addMobile(new Player(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.player_right.getFxImage(), map));
                         break;
                     }
-                    case '*': {
+                    case '*' -> {
                         tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), map,
                                 new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map));
                         break;
                     }
+
 //                    case 'x': {
 //                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), board,
 //                                new Portal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.portal.getFxImage(), board));
@@ -97,11 +98,12 @@ public class Level {
 //                                new SpeedItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_speed.getFxImage(), board));
 //                        break;
 //                    }
-                    case '1': {
+                    case '1' -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         map.addMobile(new Ballon(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 1));
                         break;
                     }
+
 //                    case '2': {
 //                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), board);
 //                        board.addCharacter(new Oneal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), board, 2));
@@ -122,7 +124,7 @@ public class Level {
 //                        board.addCharacter(new Pontan(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.pontan_left1.getFxImage(), board, 2));
 //                        break;
 //                    }
-                    default: {
+                    default -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         break;
                     }

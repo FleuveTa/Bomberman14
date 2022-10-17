@@ -29,9 +29,9 @@ public class Sprite {
     /*
     Các sprite không cắt ra từ sheet, kích thước mặc định 32*32
      */
-    public Image walll = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/map/wall1.png")));
-    public Image grasss = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/map/touchGrass.png")));
-    public Image brickk = new Image(Objects.requireNonNull(getClass().getResourceAsStream("/assets/map/brick.png")));
+    public static Image walll = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/wall1.png")));
+    public static Image grasss = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/touchGrass.png")));
+    public static Image brickk = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/brick.png")));
 
     /*
     |--------------------------------------------------------------------------

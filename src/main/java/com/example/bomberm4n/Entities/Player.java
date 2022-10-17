@@ -70,7 +70,7 @@ public class Player extends Mobile {
     /** Hình chữ nhật bao ngoài player */
     @Override
     public Rectangle getBoundary() {
-        return new Rectangle(x, y, Sprite.SCALED_SIZE - 26, Sprite.SCALED_SIZE - 14);
+        return new Rectangle(x, y, Sprite.SCALED_SIZE - 20, Sprite.SCALED_SIZE - 10);
     }
 
     @Override
@@ -146,7 +146,7 @@ public class Player extends Mobile {
     }
 
     public boolean canGoRight() {
-        int px = (int) (speed + getBoundary().getX()) / Sprite.SCALED_SIZE;
+        int px = (int) (speed + this.getX() + getBoundary().getWidth()) / Sprite.SCALED_SIZE;
         return !(getMap().getEntityAt(px, (int) (getBoundary().getY()) / Sprite.SCALED_SIZE, this).collision(this))
                 && !(getMap().getEntityAt(px, (int) (getBoundary().getY() + getBoundary().getHeight()) / Sprite.SCALED_SIZE , this).collision(this));
     }
@@ -218,8 +218,8 @@ public class Player extends Mobile {
                     break;
                 }
                 case SPACE -> {
-                    int xB = (int) ((double) x) / Sprite.SCALED_SIZE;
-                    int yB = (int) ((double) y) / Sprite.SCALED_SIZE;
+                    int xB = (int) ((double) x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
+                    int yB = (int) ((double) y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
                     if (!(getMap().getBombs().size() == bombAtTime)) {
                         getMap().addBomb(new Boom(xB * Sprite.SCALED_SIZE, yB * Sprite.SCALED_SIZE, Sprite.bomb.getFxImage(), getMap()));
                     }

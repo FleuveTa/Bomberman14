@@ -26,6 +26,5 @@ public class BomGame extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 }

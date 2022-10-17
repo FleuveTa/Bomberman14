@@ -12,11 +12,20 @@ import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class BomSubScene extends SubScene {
-    private static final String FONT_PATH = "C:\\Users\\USER\\Documents\\GitHub\\Bomberman14\\src\\main\\resources\\assets\\mobs\\button\\Mr. JUNKER MSX.ttf";
+  //  private static final String FONT_PATH = "C:\\Users\\USER\\Documents\\GitHub\\Bomberman14\\src\\main\\resources\\assets\\mobs\\button\\Mr. JUNKER MSX.ttf";
 
-    private static final String PANEL_STYLE = "C:\\Users\\USER\\Documents\\GitHub\\Bomberman14\\src\\main\\resources\\assets\\mobs\\SubScene\\Panel 5.png";
+    private static final String PANEL_STYLE;
+
+    static {
+        try {
+            PANEL_STYLE = Objects.requireNonNull(BomSubScene.class.getResource("/assets/mobs/SubScene/Panel 5.png")).toURI().toString();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     private boolean isHidden;
 
@@ -26,7 +35,7 @@ public class BomSubScene extends SubScene {
 
     static {
         try {
-            closeUrl = BomSubScene.class.getResource("/assets/mobs/SubScene/B_Button41.png").toURI().toString();
+            closeUrl = Objects.requireNonNull(BomSubScene.class.getResource("/assets/mobs/SubScene/B_Button41.png")).toURI().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -35,7 +44,7 @@ public class BomSubScene extends SubScene {
 
     static {
         try {
-            closeClickUrl = BomSubScene.class.getResource("/assets/mobs/SubScene/B_Button42.png").toURI().toString();
+            closeClickUrl = Objects.requireNonNull(BomSubScene.class.getResource("/assets/mobs/SubScene/B_Button42.png")).toURI().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
