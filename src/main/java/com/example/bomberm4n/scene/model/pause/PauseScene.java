@@ -26,10 +26,10 @@ public class PauseScene {
 
     private gameButton resumeButton;
     private gameButton menuButton;
-    private gameButton playAgainButton;
+    private gameButton exitButton;
 
-    private static final int LAYOUT_X = 100;
-    private static final int LAYOUT_Y = 50;
+    private static final int LAYOUT_X = 130;
+    private static final int LAYOUT_Y = 100;
 
     private List<gameButton> pauseButton;
 
@@ -64,8 +64,8 @@ public class PauseScene {
         addMenuButton(resumeButton);
         menuButton = new gameButton("Return Menu");
         addMenuButton(menuButton);
-        playAgainButton = new gameButton("PLAY AGAIN");
-        addMenuButton(playAgainButton);
+        exitButton = new gameButton("EXIT");
+        addMenuButton(exitButton);
     }
 
     public void addMenuButton(gameButton button) {
@@ -84,7 +84,7 @@ public class PauseScene {
     }
 
     public gameButton getPlayAgainButton() {
-        return playAgainButton;
+        return exitButton;
     }
 
     public Stage getPauseStage() {

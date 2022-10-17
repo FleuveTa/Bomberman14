@@ -30,6 +30,11 @@ public class gameScene {
         pauseScene = new PauseScene();
         pauseScene.getPauseStage().setResizable(false);
         setPauseScene();
+    }
+
+    public void createNewGame(Stage menuStage) {
+        this.menuStage = menuStage;
+        this.menuStage.hide();
         gameStage.show();
         timer = new AnimationTimer() {
             @Override
@@ -39,11 +44,6 @@ public class gameScene {
             }
         };
         timer.start();
-    }
-
-    public void createNewGame(Stage menuStage) {
-        this.menuStage = menuStage;
-        this.menuStage.hide();
     }
 
     public void setPauseButton() {
@@ -59,7 +59,7 @@ public class gameScene {
 
     public void setPauseScene() {
         setResumeButton();
-        setPlayAgian();
+        setExit();
         setReturnMenuButton();
     }
 
@@ -84,13 +84,11 @@ public class gameScene {
         });
     }
 
-    public void setPlayAgian() {
+    public void setExit() {
         pauseScene.getPlayAgainButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                pauseScene.getPauseStage().hide();
-                gameScene newGame = new gameScene();
-
+                pauseScene.getPauseStage().close();
             }
         });
     }
