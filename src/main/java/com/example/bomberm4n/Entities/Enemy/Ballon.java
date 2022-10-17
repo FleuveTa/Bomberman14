@@ -1,11 +1,13 @@
 package com.example.bomberm4n.Entities.Enemy;
 
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Map;
 import com.example.bomberm4n.Entities.Auto.random;
 import com.example.bomberm4n.Entities.Bomb.Flame;
 import com.example.bomberm4n.Entities.Entity;
 import com.example.bomberm4n.Entities.Player;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.GameSound;
 import javafx.scene.image.Image;
 
 public class Ballon extends Enemy {
@@ -24,6 +26,7 @@ public class Ballon extends Enemy {
         if (!alive) return;
         alive = false;
         getMap().addPoint(POINT);
+        GameSound.playEffectSound(Constants.SOUND_URL[3]);
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.example.bomberm4n.scene;
 
 import com.example.bomberm4n.BomGame;
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.Graphics.Sprite;
 import com.example.bomberm4n.scene.model.menu.BomSubScene;
 import com.example.bomberm4n.scene.model.menu.gameButton;
@@ -33,18 +34,22 @@ public class MainScene {
 
     private List<gameButton> menuButton;
 
+    public static boolean sound;
+
 
     private BomSubScene helpScene;
     private BomSubScene creditScene;
 
 
     public MainScene() {
+        sound = true;
         menuButton = new ArrayList<>();
         mainPane = new AnchorPane();
         mainScene = new Scene(mainPane, WIDTH, HEIGHT);
         mainStage = new Stage();
         mainStage.setScene(mainScene);
         mainStage.setResizable(false);
+        GameSound.playBackgroundSound(Constants.SOUND_URL[0]);
         createBackground();
         createButton();
         createSubScene();
@@ -86,6 +91,7 @@ public class MainScene {
         createPlayButton();
         createHelpButton();
         createCreditButton();
+        createSoundButton();
         createExitButton();
     }
 
@@ -133,6 +139,18 @@ public class MainScene {
             @Override
             public void handle(ActionEvent actionEvent) {
                 mainStage.close();
+            }
+        });
+    }
+
+    private void createSoundButton() {
+        gameButton soundButton = new gameButton("Sound");
+        addMenuButton(soundButton);
+
+        soundButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                GameSound.update();
             }
         });
     }

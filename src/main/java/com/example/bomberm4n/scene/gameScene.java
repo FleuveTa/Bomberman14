@@ -1,5 +1,6 @@
 package com.example.bomberm4n.scene;
 
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Game;
 import com.example.bomberm4n.scene.model.menu.BomSubScene;
 import com.example.bomberm4n.scene.model.pause.PauseScene;
@@ -21,7 +22,7 @@ public class gameScene {
 
     public gameScene() {
         game = new Game();
-        setPauseButton();
+        setGameButton();
         game.render();
         gameStage = new Stage();
         game.handleEvent();
@@ -29,6 +30,7 @@ public class gameScene {
         gameStage.setResizable(false);
         pauseScene = new PauseScene();
         pauseScene.getPauseStage().setResizable(false);
+        GameSound.playBackgroundSound(Constants.SOUND_URL[1]);
         setPauseScene();
     }
 
@@ -46,13 +48,20 @@ public class gameScene {
         timer.start();
     }
 
-    public void setPauseButton() {
+    public void setGameButton() {
         game.getPauseButton().setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 timer.stop();
                 gameStage.hide();
                 pauseScene.getPauseStage().show();
+            }
+        });
+
+        game.getSoundButton().setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                GameSound.update();
             }
         });
     }
@@ -80,6 +89,7 @@ public class gameScene {
             public void handle(ActionEvent actionEvent) {
                 pauseScene.getPauseStage().hide();
                 menuStage.show();
+                GameSound.playBackgroundSound(Constants.SOUND_URL[0]);
             }
         });
     }

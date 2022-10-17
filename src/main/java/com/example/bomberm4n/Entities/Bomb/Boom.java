@@ -1,11 +1,13 @@
 package com.example.bomberm4n.Entities.Bomb;
 
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Map;
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Entities.Entity;
 import com.example.bomberm4n.Entities.Mobile;
 import com.example.bomberm4n.Entities.Player;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.GameSound;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
@@ -53,6 +55,7 @@ public class Boom extends Entity {
                 timeAfter--;
             } else {
                 remove = true;
+                GameSound.playEffectSound(Constants.SOUND_URL[5]);
             }
         }
     }

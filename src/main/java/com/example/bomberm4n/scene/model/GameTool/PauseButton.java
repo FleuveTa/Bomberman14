@@ -1,4 +1,4 @@
-package com.example.bomberm4n.scene.model.pause;
+package com.example.bomberm4n.scene.model.GameTool;
 
 import com.example.bomberm4n.scene.model.menu.gameButton;
 import javafx.event.EventHandler;

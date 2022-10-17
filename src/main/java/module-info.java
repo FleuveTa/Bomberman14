@@ -4,6 +4,7 @@ module com.example.bomberm4n {
 
     requires com.almasb.fxgl.all;
     requires java.desktop;
+    requires javafx.media;
 
     opens com.example.bomberm4n to javafx.fxml;
     exports com.example.bomberm4n;

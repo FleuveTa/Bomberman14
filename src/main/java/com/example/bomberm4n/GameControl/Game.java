@@ -2,8 +2,8 @@ package com.example.bomberm4n.GameControl;
 
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Graphics.Sprite;
-import com.example.bomberm4n.scene.model.menu.BomSubScene;
-import com.example.bomberm4n.scene.model.pause.PauseButton;
+import com.example.bomberm4n.scene.model.GameTool.PauseButton;
+import com.example.bomberm4n.scene.model.GameTool.SoundButton;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -28,6 +28,7 @@ public class Game {
     private List<Text> textList;
 
     private PauseButton pauseButton;
+    private SoundButton soundButton;
 
     public Game() {
         map = new Map();
@@ -36,14 +37,11 @@ public class Game {
                 BomGame.HEIGHT * Sprite.SCALED_SIZE + GAME_OFFSET);
         gc = canvas.getGraphicsContext2D();
         textList = new ArrayList<>();
-        pauseButton = new PauseButton();
-        pauseButton.setFocusTraversable(false);
-
         root = new Group();
 
         root.getChildren().add(canvas);
         root.getChildren().addAll(textList);
-        root.getChildren().add(pauseButton);
+        setButton(root);
 
         // Tao root container
 
@@ -89,8 +87,20 @@ public class Game {
         return map;
     }
 
+    public void setButton(Group root) {
+        pauseButton = new PauseButton();
+        pauseButton.setFocusTraversable(false);
+        soundButton = new SoundButton();
+        soundButton.setFocusTraversable(false);
+        root.getChildren().add(pauseButton);
+        root.getChildren().add(soundButton);
+    }
+
     public PauseButton getPauseButton() {
         return pauseButton;
     }
 
+    public SoundButton getSoundButton() {
+        return soundButton;
+    }
 }

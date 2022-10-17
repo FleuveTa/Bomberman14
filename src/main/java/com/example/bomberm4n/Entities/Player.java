@@ -1,10 +1,12 @@
 package com.example.bomberm4n.Entities;
 
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Map;
 import com.example.bomberm4n.Entities.Bomb.Boom;
 import com.example.bomberm4n.Entities.Bomb.Flame;
 import com.example.bomberm4n.Entities.Enemy.Enemy;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.GameSound;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
@@ -45,6 +47,7 @@ public class Player extends Mobile {
         if (!alive) return;
         alive = false;
         live--;
+        GameSound.playEffectSound(Constants.SOUND_URL[3]);
     }
 
     @Override
