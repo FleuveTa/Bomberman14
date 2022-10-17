@@ -2,18 +2,17 @@ package com.example.bomberm4n.scene;
 
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Graphics.Sprite;
-import com.example.bomberm4n.scene.model.BomSubScene;
-import com.example.bomberm4n.scene.model.gameButton;
+import com.example.bomberm4n.scene.model.menu.BomSubScene;
+import com.example.bomberm4n.scene.model.menu.gameButton;
+import com.example.bomberm4n.scene.model.pause.PauseScene;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,8 +36,6 @@ public class MainScene {
     private BomSubScene helpScene;
     private BomSubScene creditScene;
 
-    private BomSubScene scenceToHide;
-
 
     public MainScene() {
         menuButton = new ArrayList<>();
@@ -46,6 +43,7 @@ public class MainScene {
         mainScene = new Scene(mainPane, WIDTH, HEIGHT);
         mainStage = new Stage();
         mainStage.setScene(mainScene);
+        mainStage.setResizable(false);
         createBackground();
         createButton();
         createSubScene();

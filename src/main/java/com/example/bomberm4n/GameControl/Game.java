@@ -2,16 +2,14 @@ package com.example.bomberm4n.GameControl;
 
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Graphics.Sprite;
-import com.example.bomberm4n.scene.model.PauseButton;
+import com.example.bomberm4n.scene.model.menu.BomSubScene;
+import com.example.bomberm4n.scene.model.pause.PauseButton;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -89,6 +87,10 @@ public class Game {
 
     public Map getBoard() {
         return map;
+    }
+
+    public PauseButton getPauseButton() {
+        return pauseButton;
     }
 
 }

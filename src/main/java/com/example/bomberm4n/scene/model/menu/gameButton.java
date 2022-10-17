@@ -1,4 +1,4 @@
-package com.example.bomberm4n.scene.model;
+package com.example.bomberm4n.scene.model.menu;
 
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;

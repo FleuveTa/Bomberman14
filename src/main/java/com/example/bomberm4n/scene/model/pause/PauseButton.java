@@ -1,5 +1,6 @@
-package com.example.bomberm4n.scene.model;
+package com.example.bomberm4n.scene.model.pause;
 
+import com.example.bomberm4n.scene.model.menu.gameButton;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.effect.DropShadow;
@@ -10,6 +11,7 @@ import java.net.URISyntaxException;
 
 
 public class PauseButton extends Button {
+
     private static final String freeUrl;
 
     static {
