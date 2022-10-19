@@ -47,7 +47,7 @@ public class Player extends Mobile {
         if (!alive) return;
         alive = false;
         live--;
-        GameSound.playEffectSound(Constants.SOUND_URL[3]);
+        GameSound.playEffectSound(Constants.SOUND_URL[4]);
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Player extends Mobile {
     /** Hình chữ nhật bao ngoài player */
     @Override
     public Rectangle getBoundary() {
-        return new Rectangle(x, y, Sprite.SCALED_SIZE - 20, Sprite.SCALED_SIZE - 10);
+        return new Rectangle(x, y, Sprite.SCALED_SIZE - 12, Sprite.SCALED_SIZE - 5);
     }
 
     @Override
@@ -161,7 +161,7 @@ public class Player extends Mobile {
     }
 
     public boolean canGoUp() {
-        int py = (int) (- speed + getBoundary().getY()) / Sprite.SCALED_SIZE;
+        int py = (int) (-speed + getBoundary().getY()) / Sprite.SCALED_SIZE;
         return !(getMap().getEntityAt((int) getBoundary().getX() / Sprite.SCALED_SIZE, py, this).collision(this))
                 && !(getMap().getEntityAt((int) (getBoundary().getX() + getBoundary().getWidth()) / Sprite.SCALED_SIZE, py, this).collision(this));
     }
