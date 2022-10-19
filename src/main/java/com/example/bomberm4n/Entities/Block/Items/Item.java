@@ -1,5 +1,6 @@
-package com.example.bomberm4n.Entities.Block;
+package com.example.bomberm4n.Entities.Block.Items;
 
+import com.example.bomberm4n.Entities.Block.Tile;
 import com.example.bomberm4n.GameControl.Map;
 import com.example.bomberm4n.BomGame;
 import javafx.scene.canvas.GraphicsContext;
@@ -7,7 +8,7 @@ import javafx.scene.image.Image;
 
 public class Item extends Tile {
 
-    private boolean isBuffed = false;
+    private boolean isPoweredUp = false;
 
     public Item(int x, int y, Image img, Map map) {
         super(x, y, img, map);
@@ -20,11 +21,11 @@ public class Item extends Tile {
         gc.drawImage(img, x - xOffset, y - yOffset + BomGame.GAME_OFFSET);
     }
 
-    public boolean isBuffed() {
-        return isBuffed;
+    public boolean isPoweredUp() {
+        return isPoweredUp;
     }
 
-    public void setBuffed(boolean buffed) {
-        isBuffed = buffed;
+    public void setPoweredUp(boolean poweredUp) {
+        isPoweredUp = poweredUp;
     }
 }

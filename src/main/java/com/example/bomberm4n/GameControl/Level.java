@@ -1,5 +1,9 @@
 package com.example.bomberm4n.GameControl;
 
+import com.example.bomberm4n.Entities.Block.Items.BombItem;
+import com.example.bomberm4n.Entities.Block.Items.FlameItem;
+import com.example.bomberm4n.Entities.Block.Items.Item;
+import com.example.bomberm4n.Entities.Block.Items.SpeedItem;
 import com.example.bomberm4n.Entities.Block.Tile;
 import com.example.bomberm4n.Entities.Block.*;
 import com.example.bomberm4n.Entities.Enemy.Ballon;
@@ -78,26 +82,26 @@ public class Level {
                         break;
                     }
 
-//                    case 'x': {
-//                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), board,
-//                                new Portal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.portal.getFxImage(), board));
-//                        break;
-//                    }
-//                    case 'f': {
-//                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), board,
-//                                new FlameItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_flames.getFxImage(), board));
-//                        break;
-//                    }
-//                    case 'b': {
-//                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), board,
-//                                new BombItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_bombs.getFxImage(), board));
-//                        break;
-//                    }
-//                    case 's': {
-//                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), board,
-//                                new SpeedItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_speed.getFxImage(), board));
-//                        break;
-//                    }
+                    case 'x' -> {
+                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), map,
+                                new Portal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.portal.getFxImage(), map));
+                        break;
+                    }
+                    case 'f' -> {
+                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), map,
+                                new FlameItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_flames.getFxImage(), map));
+                        break;
+                    }
+                    case 'b' -> {
+                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), map,
+                                new BombItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_bombs.getFxImage(), map));
+                        break;
+                    }
+                    case 's' -> {
+                        tiles[i][j] = new Brick(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.brick.getFxImage(), map,
+                                new SpeedItem(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.powerup_speed.getFxImage(), map));
+                        break;
+                    }
                     case '1' -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         map.addMobile(new Ballon(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 1));
