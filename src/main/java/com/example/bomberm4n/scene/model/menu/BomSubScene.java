@@ -15,13 +15,14 @@ import java.net.URISyntaxException;
 import java.util.Objects;
 
 public class BomSubScene extends SubScene {
-  //  private static final String FONT_PATH = "C:\\Users\\USER\\Documents\\GitHub\\Bomberman14\\src\\main\\resources\\assets\\mobs\\button\\Mr. JUNKER MSX.ttf";
+    public static final String FONT_PATH;
 
-    private static final String PANEL_STYLE;
+    public static final String PANEL_STYLE;
 
     static {
         try {
             PANEL_STYLE = Objects.requireNonNull(BomSubScene.class.getResource("/assets/mobs/SubScene/Panel 5.png")).toURI().toString();
+            FONT_PATH = Objects.requireNonNull(BomSubScene.class.getResource("/assets/mobs/button/8-bitArcadeIn.ttf")).toURI().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }

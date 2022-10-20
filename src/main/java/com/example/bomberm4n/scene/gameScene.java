@@ -9,6 +9,8 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.stage.Stage;
 
+import java.net.URISyntaxException;
+
 public class gameScene {
     private Game game;
 
@@ -20,7 +22,7 @@ public class gameScene {
 
     private PauseScene pauseScene;
 
-    public gameScene() {
+    public gameScene() throws URISyntaxException {
         game = new Game();
         setGameButton();
         game.render();

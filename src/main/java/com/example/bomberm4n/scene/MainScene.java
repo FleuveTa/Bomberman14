@@ -14,6 +14,7 @@ import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
 
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -102,7 +103,12 @@ public class MainScene {
         playButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                gameScene gameManager = new gameScene();
+                gameScene gameManager = null;
+                try {
+                    gameManager = new gameScene();
+                } catch (URISyntaxException e) {
+                    throw new RuntimeException(e);
+                }
                 gameManager.createNewGame(mainStage);
             }
         });
