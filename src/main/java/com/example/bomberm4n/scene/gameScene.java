@@ -3,6 +3,7 @@ package com.example.bomberm4n.scene;
 import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Game;
 import com.example.bomberm4n.scene.model.menu.BomSubScene;
+import com.example.bomberm4n.scene.model.pause.GameOverScene;
 import com.example.bomberm4n.scene.model.pause.PauseScene;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;

@@ -13,7 +13,10 @@ public class Constants {
                 Constants.class.getResource("/assets/sound/PauseSound.mp3").toURI().toString(), //2 pause
                 Constants.class.getResource("/assets/sound/Die.wav").toURI().toString(), //3 die
                 Constants.class.getResource("/assets/sound/EnemyDie.wav").toURI().toString(), //4 enemy die
-                Constants.class.getResource("/assets/sound/Explosion.wav").toURI().toString()
+                Constants.class.getResource("/assets/sound/Explosion.wav").toURI().toString(),  //5 bomb explosion
+                    Constants.class.getResource("/assets/sound/ItemAppears.wav").toURI().toString(), // 6
+                    Constants.class.getResource("/assets/sound/PowerUp.wav").toURI().toString(), // 7
+                    Constants.class.getResource("/assets/sound/Oops.wav").toURI().toString() // 8 receive Item
             };
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);

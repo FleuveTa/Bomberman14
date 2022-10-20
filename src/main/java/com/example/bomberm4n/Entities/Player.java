@@ -73,7 +73,7 @@ public class Player extends Mobile {
     /** Hình chữ nhật bao ngoài player */
     @Override
     public Rectangle getBoundary() {
-        return new Rectangle(x, y, Sprite.SCALED_SIZE - 12, Sprite.SCALED_SIZE - 5);
+        return new Rectangle(x, y, Sprite.SCALED_SIZE - 12, Sprite.SCALED_SIZE - 5 );
     }
 
     @Override
@@ -174,28 +174,56 @@ public class Player extends Mobile {
     @Override
     public void move() {
         if (direction == RIGHT) {
-            if (canGoRight()) {
-                x += speed;
+            if (!canGoRight()) {
+                for (int i = -8 - speed; i <= 8 + speed; i++) {
+                    y += i;
+                    if(canGoRight()) {
+                        break;
+                    } else {
+                        y -= i;
+                    }
+                }
             } else {
-                return;
+                x += speed;
             }
         } else if (direction == LEFT) {
-            if (canGoLeft()) {
-                x -= speed;
+            if (!canGoLeft()) {
+                for (int i = -8 - speed; i <= 8 + speed; i++) {
+                    y += i;
+                    if(canGoLeft()) {
+                        break;
+                    } else {
+                        y -= i;
+                    }
+                }
             } else {
-                return;
+                x -= speed;
             }
         } else if (direction == UP) {
-            if (canGoUp()) {
-                y -= speed;
+            if (!canGoUp()) {
+                for (int i = -8 - speed; i <= 8 + speed; i++) {
+                    x += i;
+                    if(canGoUp()) {
+                        break;
+                    } else {
+                        x -= i;
+                    }
+                }
             } else {
-                return;
+                y -= speed;
             }
         } else if (direction == DOWN) {
-            if (canGoDown()) {
-                y += speed;
+            if (!canGoDown()) {
+                for (int i = -8 - speed; i <= 8 + speed; i++) {
+                    x += i;
+                    if(canGoDown()) {
+                        break;
+                    } else {
+                        x -= i;
+                    }
+                }
             } else {
-                return;
+                y += speed;
             }
         }
     }
