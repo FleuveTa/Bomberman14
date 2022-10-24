@@ -14,7 +14,7 @@ public abstract class Mobile extends Entity {
 
     // Trạng thái của các mobile : up left right down
     protected int direction;
-    protected boolean alive = true;
+    public boolean alive = true;
     protected int timeAfterKill = 40;
 
     public Mobile(int x, int y, Image img, Map map) {

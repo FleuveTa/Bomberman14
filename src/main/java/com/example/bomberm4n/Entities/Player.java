@@ -248,6 +248,10 @@ public class Player extends Mobile {
                     direction = RIGHT;
                     break;
                 }
+                case P -> {
+                    getMap().cheat();
+                    break;
+                }
                 case SPACE -> {
                     int xB = (int) ((double) x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
                     int yB = (int) ((double) y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;

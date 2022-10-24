@@ -210,4 +210,13 @@ public class Map {
         return false;
     }
 
+    /**
+     * Hàm này kill hết enemies để vào portal sang level sau cho nhanh
+     */
+    public void cheat() {
+        for (Mobile mobile : mobiles) {
+            if (mobile.alive) mobile.kill();
+        }
+    }
+
 }

@@ -111,7 +111,7 @@ public class Game {
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        map.getCamera().centerEntity(map.getBomber());
+        map.getCamera().centerEntity(map.getBomber());    //camera following player
         map.render(gc);
     }
 

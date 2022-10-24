@@ -9,7 +9,7 @@ public class Constants {
         try {
             SOUND_URL = new String[]{
                 Constants.class.getResource("/assets/sound/backgroundSound.mp3").toURI().toString(), //0
-                Constants.class.getResource("/assets/sound/amnk.mp3").toURI().toString(), //1
+                Constants.class.getResource("/assets/sound/howl.mp3").toURI().toString(), //1
                 Constants.class.getResource("/assets/sound/PauseSound.mp3").toURI().toString(), //2 pause
                 Constants.class.getResource("/assets/sound/Die.wav").toURI().toString(), //3 die
                 Constants.class.getResource("/assets/sound/EnemyDie.wav").toURI().toString(), //4 enemy die

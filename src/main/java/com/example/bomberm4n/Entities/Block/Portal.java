@@ -27,7 +27,7 @@ public class Portal extends Tile {
                 rect.getY() - yOffset + BomGame.GAME_OFFSET,
                 rect.getWidth(),
                 rect.getHeight());
-        gc.setFill(Color.BLACK);
+        gc.setFill(Color.GOLD);
         gc.drawImage(img, x - xOffset, y - yOffset + BomGame.GAME_OFFSET);
     }
 

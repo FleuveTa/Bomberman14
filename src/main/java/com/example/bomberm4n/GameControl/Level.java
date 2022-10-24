@@ -17,7 +17,7 @@ import java.io.FileReader;
 
 public class Level {
 
-    public static final int MAX_LEVEL = 4;
+    public static final int MAX_LEVEL = 2;
 
     private int width, height;
 
@@ -43,6 +43,7 @@ public class Level {
             BufferedReader buffReader = new BufferedReader(fileReader);
             String line = buffReader.readLine().trim();
             String[] tokens = line.split(" ");
+            level = Integer.parseInt(tokens[0]);
             width = Integer.parseInt(tokens[2]);
             height = Integer.parseInt(tokens[1]);
             mapMatrix = new char[height][width];

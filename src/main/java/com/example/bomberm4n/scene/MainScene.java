@@ -150,7 +150,7 @@ public class MainScene {
     }
 
     private void createSoundButton() {
-        gameButton soundButton = new gameButton("Sound");
+        gameButton soundButton = new gameButton("SOUND");
         addMenuButton(soundButton);
 
         soundButton.setOnAction(new EventHandler<ActionEvent>() {
