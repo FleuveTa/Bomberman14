@@ -43,6 +43,9 @@ public class Game {
 
     private Text time;
     private Text time2;
+
+    private boolean alive;
+
     Text level;
     Text live;
 
@@ -54,6 +57,7 @@ public class Game {
 
     public Game() throws URISyntaxException {
         map = new Map();
+        alive = true;
         // Tao Canvas
         canvas = new Canvas(BomGame.WIDTH * Sprite.SCALED_SIZE,
                 BomGame.HEIGHT * Sprite.SCALED_SIZE + GAME_OFFSET);
@@ -69,6 +73,10 @@ public class Game {
         // Tao scene
         gameScene = new Scene(root);
         gameScene.setFill(Color.web("010017", 1.0));
+    }
+
+    public Text getLive() {
+        return live;
     }
 
     public Scene getGameScene() {
@@ -106,7 +114,11 @@ public class Game {
         if (map.getBomber().getLive() == 3) live.setText("❤❤❤");
         else if (map.getBomber().getLive() == 2) live.setText("❤❤");
         else if (map.getBomber().getLive() == 1) live.setText("❤");
-        else live.setText("");
+        else alive = false;
+    }
+
+    public boolean isAlive() {
+        return alive;
     }
 
     public void render() {

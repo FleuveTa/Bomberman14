@@ -3,6 +3,7 @@ package com.example.bomberm4n.scene;
 import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.GameControl.Game;
 import com.example.bomberm4n.scene.model.menu.BomSubScene;
+import com.example.bomberm4n.scene.model.menu.NextScene;
 import com.example.bomberm4n.scene.model.pause.GameOverScene;
 import com.example.bomberm4n.scene.model.pause.PauseScene;
 import javafx.animation.AnimationTimer;
@@ -22,6 +23,8 @@ public class gameScene {
     private AnimationTimer timer;
 
     private PauseScene pauseScene;
+
+    private NextScene nextScene;
 
     public gameScene() throws URISyntaxException {
         game = new Game();
@@ -45,7 +48,14 @@ public class gameScene {
             @Override
             public void handle(long l) {
                 game.render();
-                game.update();
+                if (game.isAlive()) {
+                    game.update();
+                } else {
+                    nextScene = new NextScene(Constants.BACKGROUND_URL[3]);
+                    timer.stop();
+                    gameStage.hide();
+                    nextScene.getNextStage().show();
+                }
             }
         };
         timer.start();
