@@ -112,7 +112,7 @@ public class Level {
 
                     case '2' -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
-                        map.addMobile(new Oneal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 2));
+                        map.addMobile(new Oneal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 1));
                         break;
                     }
 //                    case '3': {

@@ -63,17 +63,17 @@ public class follow extends AI{
 
     public int ColDirec() {
         if(player.getXTile() < enemy.getXTile())
-            return 1;
+            return 2;
         else if(player.getXTile() > enemy.getXTile())
-            return 0;
+            return 1;
         return -1;
     }
 
     public  int RowDirec() {
         if(player.getYTile() < enemy.getYTile())
-            return 2;
-        else if(player.getYTile() > enemy.getYTile())
             return 3;
+        else if(player.getYTile() > enemy.getYTile())
+            return 4;
         return -1;
     }
 }
