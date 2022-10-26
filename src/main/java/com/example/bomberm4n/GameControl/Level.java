@@ -7,6 +7,7 @@ import com.example.bomberm4n.Entities.Block.Items.SpeedItem;
 import com.example.bomberm4n.Entities.Block.Tile;
 import com.example.bomberm4n.Entities.Block.*;
 import com.example.bomberm4n.Entities.Enemy.Ballon;
+import com.example.bomberm4n.Entities.Enemy.Oneal;
 import com.example.bomberm4n.Entities.Player;
 import com.example.bomberm4n.Graphics.Sprite;
 import javafx.scene.canvas.GraphicsContext;
@@ -109,11 +110,11 @@ public class Level {
                         break;
                     }
 
-//                    case '2': {
-//                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), board);
-//                        board.addCharacter(new Oneal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), board, 2));
-//                        break;
-//                    }
+                    case '2' -> {
+                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
+                        map.addMobile(new Oneal(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 2));
+                        break;
+                    }
 //                    case '3': {
 //                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), board);
 //                        board.addCharacter(new Kondoria(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), board, 1));
