@@ -71,22 +71,22 @@ public class Boom extends Entity {
     @Override
     public boolean collision(Entity e) {
         if (e instanceof Player) {
-//            int diffX = e.getX() - this.getX();
-//            int diffY = e.getY() - this.getY();
-//            if (!(diffX > -e.getBoundary().getWidth() - 6 - 1 && diffX < Sprite.SCALED_SIZE - 6
-//                    && diffY > -e.getBoundary().getHeight() - 6 - 1 && diffY < Sprite.SCALED_SIZE - 6)) {
-//                canPass = true;
-//            }
+            int diffX = e.getX() - this.getX();
+            int diffY = e.getY() - this.getY();
+            if (!(diffX > -e.getBoundary().getWidth() - 6 - 1 && diffX < Sprite.SCALED_SIZE - 6
+                    && diffY > -e.getBoundary().getHeight() - 6 - 1 && diffY < Sprite.SCALED_SIZE - 6)) {
+                canPass = true;
+            }
             return false;
         }
         if (e instanceof Flame) {
             timeToExplode = 0;
         }
-//        if (e instanceof Boom) {
-//            if (((Boom) e).isExploded) {
-//                timeToExplode = 0;
-//            }
-//        }
+        if (e instanceof Boom) {
+            if (((Boom) e).isExploded) {
+                timeToExplode = 0;
+            }
+        }
         return true;
     }
 

@@ -9,9 +9,14 @@ import com.example.bomberm4n.scene.model.pause.PauseScene;
 import javafx.animation.AnimationTimer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 import java.net.URISyntaxException;
+
+import static com.example.bomberm4n.GameControl.Game.fontSize2;
 
 public class gameScene {
     private Game game;
@@ -25,6 +30,8 @@ public class gameScene {
     private PauseScene pauseScene;
 
     private NextScene nextScene;
+
+    private static int score;
 
     public gameScene() throws URISyntaxException {
         game = new Game();
@@ -50,8 +57,9 @@ public class gameScene {
                 game.render();
                 if (game.isAlive()) {
                     game.update();
+                    score = game.getScore3();
                 } else {
-                    nextScene = new NextScene(Constants.BACKGROUND_URL[3]);
+                    nextScene = new NextScene(Constants.BACKGROUND_URL[3], 1);
                     timer.stop();
                     gameStage.hide();
                     nextScene.getNextStage().show();
@@ -114,5 +122,13 @@ public class gameScene {
                 pauseScene.getPauseStage().close();
             }
         });
+    }
+
+    public static int getScore() {
+        return score;
+    }
+
+    public static Stage getGameStage() {
+        return gameStage;
     }
 }

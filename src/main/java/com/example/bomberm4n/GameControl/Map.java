@@ -10,6 +10,7 @@ import com.example.bomberm4n.Entities.Mobile;
 import com.example.bomberm4n.Entities.Player;
 import com.example.bomberm4n.GameControl.Level;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.model.menu.NextScene;
 import javafx.scene.canvas.GraphicsContext;
 
 import java.util.ArrayList;

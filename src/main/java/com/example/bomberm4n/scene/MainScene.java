@@ -59,8 +59,6 @@ public class MainScene {
         createBackground();
         createButton();
         createSubScene();
-
-
     }
 
     public Stage getMainStage() {

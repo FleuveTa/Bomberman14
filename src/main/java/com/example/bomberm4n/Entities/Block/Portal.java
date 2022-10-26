@@ -1,11 +1,14 @@
 package com.example.bomberm4n.Entities.Block;
 
 import com.example.bomberm4n.BomGame;
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.Entities.Entity;
 import com.example.bomberm4n.Entities.Player;
 import com.example.bomberm4n.GameControl.Game;
 import com.example.bomberm4n.GameControl.Level;
 import com.example.bomberm4n.GameControl.Map;
+import com.example.bomberm4n.scene.gameScene;
+import com.example.bomberm4n.scene.model.menu.NextScene;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;

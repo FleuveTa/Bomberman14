@@ -28,7 +28,7 @@ import java.util.Objects;
 import static com.example.bomberm4n.BomGame.*;
 
 public class Game {
-    private Map map;
+    private static Map map;
     private Canvas canvas;
 
     private GraphicsContext gc;
@@ -45,6 +45,8 @@ public class Game {
     private Text time2;
 
     private boolean alive;
+
+    private int score3;
 
     Text level;
     Text live;
@@ -75,9 +77,6 @@ public class Game {
         gameScene.setFill(Color.web("010017", 1.0));
     }
 
-    public Text getLive() {
-        return live;
-    }
 
     public Scene getGameScene() {
         return gameScene;
@@ -111,6 +110,7 @@ public class Game {
         time2.setText(String.valueOf(map.getTime() / 60));
         level.setText(String.valueOf(map.getLevel().getLevel()));
         live.setFill(Color.web("a0331b", 1.0));
+        score3 = map.getScore();
         if (map.getBomber().getLive() == 3) live.setText("❤❤❤");
         else if (map.getBomber().getLive() == 2) live.setText("❤❤");
         else if (map.getBomber().getLive() == 1) live.setText("❤");
@@ -119,6 +119,10 @@ public class Game {
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public int getScore3() {
+        return score3;
     }
 
     public void render() {
@@ -214,5 +218,9 @@ public class Game {
 
     public SoundButton getSoundButton() {
         return soundButton;
+    }
+
+    public static Map getMap() {
+        return map;
     }
 }
