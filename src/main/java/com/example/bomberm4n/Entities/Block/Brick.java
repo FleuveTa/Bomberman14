@@ -1,5 +1,6 @@
 package com.example.bomberm4n.Entities.Block;
 
+import com.example.bomberm4n.Entities.Enemy.Kondoria;
 import com.example.bomberm4n.GameControl.Map;
 import com.example.bomberm4n.BomGame;
 import com.example.bomberm4n.Entities.Bomb.Flame;
@@ -68,13 +69,7 @@ public class Brick extends Tile {
             addBrokenBrickY(this.y / Sprite.SCALED_SIZE);
             isBroken = true;
         }
-//        if (e instanceof Kondoria) {
-//            return false;
-//        }
-//        if (e instanceof Pontan) {
-//            return false;
-//        }
-        return true;
+        return !(e instanceof Kondoria);
     }
 
     public Tile getUnder() {

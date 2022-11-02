@@ -216,8 +216,9 @@ public class Map {
      */
     public void cheat() {
         for (Mobile mobile : mobiles) {
-            if (mobile.alive) mobile.kill();
+            if (!(mobile instanceof Player)) {
+                if (mobile.alive) mobile.kill();
+            }
         }
     }
-
 }
