@@ -38,6 +38,8 @@ public class Game {
     private Pane levelPane;
     private Scene levelScene;
 
+    private boolean isWin;
+
     private Text score;
     private Text score2;
 
@@ -75,6 +77,7 @@ public class Game {
         // Tao scene
         gameScene = new Scene(root);
         gameScene.setFill(Color.web("010017", 1.0));
+        isWin = false;
     }
 
 
@@ -115,10 +118,17 @@ public class Game {
         else if (map.getBomber().getLive() == 2) live.setText("❤❤");
         else if (map.getBomber().getLive() == 1) live.setText("❤");
         else alive = false;
+        if(map.isWin()) {
+            isWin = true;
+        }
     }
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public boolean isWin() {
+        return isWin;
     }
 
     public int getScore3() {

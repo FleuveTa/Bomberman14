@@ -1,7 +1,9 @@
 package com.example.bomberm4n.scene.model.menu;
 
 import com.example.bomberm4n.BomGame;
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.GameSound;
 import com.example.bomberm4n.scene.MainScene;
 import com.example.bomberm4n.scene.gameScene;
 import javafx.event.ActionEvent;
@@ -52,6 +54,7 @@ public class NextScene {
             createScoreText();
             nextPane.getChildren().addAll(textList);
             createMenuButton();
+            GameSound.playEffectSound(Constants.SOUND_URL[8]);
 
         }else if(z == 2){
             createScoreText();

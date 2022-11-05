@@ -16,7 +16,8 @@ public class Constants {
                     Constants.class.getResource("/assets/sound/Explosion.wav").toURI().toString(),  //5 bomb explosion
                     Constants.class.getResource("/assets/sound/ItemAppears.wav").toURI().toString(), // 6
                     Constants.class.getResource("/assets/sound/PowerUp.wav").toURI().toString(), // 7
-                    Constants.class.getResource("/assets/sound/Oops.wav").toURI().toString() // 8 receive Item
+                    Constants.class.getResource("/assets/sound/Oops.wav").toURI().toString(), // 8 game Over
+                    Constants.class.getResource("/assets/sound/Victory.wav").toURI().toString()
             };
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);

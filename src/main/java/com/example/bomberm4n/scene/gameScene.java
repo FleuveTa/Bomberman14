@@ -58,12 +58,20 @@ public class gameScene {
                 if (game.isAlive()) {
                     game.update();
                     score = game.getScore3();
+                    if(game.isWin()) {
+                        nextScene = new NextScene(Constants.BACKGROUND_URL[1], 1);
+                        timer.stop();
+                        gameStage.close();
+                        nextScene.getNextStage().show();
+                        GameSound.playBackgroundSound(Constants.SOUND_URL[9]);
+                    }
                 } else {
                     nextScene = new NextScene(Constants.BACKGROUND_URL[3], 1);
                     timer.stop();
                     gameStage.hide();
                     nextScene.getNextStage().show();
                 }
+
             }
         };
         timer.start();

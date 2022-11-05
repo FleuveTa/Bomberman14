@@ -1,7 +1,9 @@
 package com.example.bomberm4n.scene.model.pause;
 
 import com.example.bomberm4n.BomGame;
+import com.example.bomberm4n.Constants.Constants;
 import com.example.bomberm4n.Graphics.Sprite;
+import com.example.bomberm4n.scene.GameSound;
 import com.example.bomberm4n.scene.model.menu.gameButton;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

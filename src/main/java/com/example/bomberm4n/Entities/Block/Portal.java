@@ -39,7 +39,9 @@ public class Portal extends Tile {
         if(e instanceof Player) {
             if(!getMap().hasEnemies())
                 getMap().nextLevel();
-            if (getMap().getLevel().getLevel() == Level.MAX_LEVEL) getMap().setWin(true);
+            if (getMap().getLevel().getLevel() == Level.MAX_LEVEL) {
+                getMap().setWin(true);
+            };
             return true;
         }
         return false;
