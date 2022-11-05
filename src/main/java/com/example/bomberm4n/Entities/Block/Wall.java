@@ -17,6 +17,6 @@ public class Wall extends Tile {
 
     @Override
     public boolean collision(Entity e) {
-        return !(e instanceof Kondoria);
+        return true;
     }
 }
