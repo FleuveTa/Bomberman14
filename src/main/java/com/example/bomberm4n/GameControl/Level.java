@@ -27,7 +27,7 @@ public class Level {
 
     private char [][] mapMatrix;
 
-    private Map map;
+    private final Map map;
 
     private Tile[][] tiles;
 
@@ -121,16 +121,6 @@ public class Level {
                         map.addMobile(new Kondoria(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 1));
                         break;
                     }
-//                    case '4': {
-//                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), board);
-//                        board.addCharacter(new Doll(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), board, 2));
-//                        break;
-//                    }
-//                    case '5': {
-//                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), board);
-//                        board.addCharacter(new Pontan(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.pontan_left1.getFxImage(), board, 2));
-//                        break;
-//                    }
                     default -> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         break;

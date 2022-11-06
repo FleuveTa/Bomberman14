@@ -40,7 +40,6 @@ public class Ballon extends Enemy {
                 setImg(Sprite.Animation(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animate, 60).getFxImage());
                 finalAnimation--;
             } else {
-   //             Game.scorePlus.setText("");
                 remove();
             }
         }

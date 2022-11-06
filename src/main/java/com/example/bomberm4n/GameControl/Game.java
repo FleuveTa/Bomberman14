@@ -30,29 +30,22 @@ import static com.example.bomberm4n.BomGame.*;
 public class Game {
     private static Map map;
     private Canvas canvas;
-
     private GraphicsContext gc;
     private Group root;
     private Scene gameScene;
     private List<Text> textList;
     private Pane levelPane;
     private Scene levelScene;
-
     private boolean isWin;
-
     private Text score;
     private Text score2;
-
     private Text time;
     private Text time2;
 
     private boolean alive;
-
     private int score3;
-
     Text level;
     Text live;
-
     private PauseButton pauseButton;
     private SoundButton soundButton;
     public static final int fontSize2 = 20;
@@ -66,7 +59,6 @@ public class Game {
         canvas = new Canvas(BomGame.WIDTH * Sprite.SCALED_SIZE,
                 BomGame.HEIGHT * Sprite.SCALED_SIZE + GAME_OFFSET);
         gc = canvas.getGraphicsContext2D();
-        initLevelBackground();
         textList = new ArrayList<>();
         initScoreBar();
         // Tao root container
@@ -111,7 +103,6 @@ public class Game {
         score2.setText(String.valueOf(map.getScore()));
         time.setText(String.valueOf(map.getTime() / 60));
         time2.setText(String.valueOf(map.getTime() / 60));
-        level.setText(String.valueOf(map.getLevel().getLevel()));
         live.setFill(Color.web("a0331b", 1.0));
         score3 = map.getScore();
         if (map.getBomber().getLive() == 3) live.setText("❤❤❤");
@@ -139,10 +130,6 @@ public class Game {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         map.getCamera().centerEntity(map.getBomber());    //camera following player
         map.render(gc);
-    }
-
-    public Map getBoard() {
-        return map;
     }
 
     public void setButton(Group root) {
@@ -210,17 +197,6 @@ public class Game {
         textList.add(live);
     }
 
-    public void initLevelBackground() {
-        levelPane = new Pane();
-        levelScene = new Scene(levelPane, WIDTH * Sprite.SCALED_SIZE, HEIGHT * Sprite.SCALED_SIZE);
-        Image levelImg = new Image(url);
-        BackgroundImage backLevel = new BackgroundImage(levelImg, null, null, null, null);
-        levelPane.setBackground(new Background(backLevel));
-        level = new Text(498, 210, String.valueOf(map.getLevel().getLevel()));
-        level.setFont(Font.loadFont(BomSubScene.FONT_PATH, 70));
-        level.setFill(Color.web("0xffdfae",1.0));
-        levelPane.getChildren().add(level);
-    }
 
     public PauseButton getPauseButton() {
         return pauseButton;

@@ -6,7 +6,7 @@ import com.example.bomberm4n.Entities.Entity;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-public class Tile extends Entity {
+public abstract class Tile extends Entity {
 
     /** Đây là các entity không di chuyển */
     public Tile(int x, int y, Image img, Map map) {

@@ -19,7 +19,7 @@ import java.net.URISyntaxException;
 import static com.example.bomberm4n.GameControl.Game.fontSize2;
 
 public class gameScene {
-    private Game game;
+    private final Game game;
 
     private Stage menuStage;
 
@@ -71,7 +71,6 @@ public class gameScene {
                     gameStage.hide();
                     nextScene.getNextStage().show();
                 }
-
             }
         };
         timer.start();
