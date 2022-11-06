@@ -11,8 +11,6 @@ public abstract class Entity {
     protected int x;
 
     protected int y;
-
-
     protected Image img;
 
     protected boolean remove = false;

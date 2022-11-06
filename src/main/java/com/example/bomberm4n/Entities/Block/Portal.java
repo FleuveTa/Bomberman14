@@ -20,7 +20,6 @@ public class Portal extends Tile {
     public Portal(int x, int y, Image image, Map map) {
         super(x, y, image, map);
     }
-
     @Override
     public void render(GraphicsContext gc) {
         Rectangle rect = this.getBoundary();

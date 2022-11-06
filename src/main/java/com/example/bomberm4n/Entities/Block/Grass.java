@@ -13,7 +13,6 @@ public class Grass extends Tile {
     public void update() {
 
     }
-
     @Override
     public boolean collision(Entity e) {
         return false;

@@ -23,9 +23,7 @@ public class Constants {
             throw new RuntimeException(e);
         }
     }
-
     public static String[] TUTORIAL_URL;
-
     static {
         try {
             TUTORIAL_URL = new String[]{
@@ -42,9 +40,7 @@ public class Constants {
             throw new RuntimeException(e);
         }
     }
-
     public static String[] BACKGROUND_URL;
-
     static {
         try {
             BACKGROUND_URL = new String[]{

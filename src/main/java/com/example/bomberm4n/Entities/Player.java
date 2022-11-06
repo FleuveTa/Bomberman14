@@ -13,9 +13,9 @@ import javafx.scene.shape.Rectangle;
 
 public class Player extends Mobile {
 
-    private int flameLength;  //Độ dài khi bom nổ
+    private int flameLength;
 
-    private int bombAtTime; //Số lượng bom đặt được cùng lúc
+    private int bombAtTime;
 
     private int speed;
 

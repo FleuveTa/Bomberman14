@@ -24,7 +24,6 @@ public abstract class Tile extends Entity {
         int yOffset = getMap().getCamera().getY();
         gc.drawImage(img, x - xOffset, y - yOffset + BomGame.GAME_OFFSET);
     }
-
     @Override
     public void update() {}
 }

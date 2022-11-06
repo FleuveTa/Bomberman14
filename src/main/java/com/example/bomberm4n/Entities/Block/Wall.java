@@ -11,10 +11,7 @@ public class Wall extends Tile {
     }
 
     @Override
-    public void update() {
-
-    }
-
+    public void update() {}
     @Override
     public boolean collision(Entity e) {
         return true;
