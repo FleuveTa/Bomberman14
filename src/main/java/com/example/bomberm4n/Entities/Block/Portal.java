@@ -37,11 +37,14 @@ public class Portal extends Tile {
     @Override
     public boolean collision(Entity e) {
         if(e instanceof Player) {
-            if(!getMap().hasEnemies())
-                getMap().nextLevel();
-            if (getMap().getLevel().getLevel() == Level.MAX_LEVEL) {
-                getMap().setWin(true);
-            };
+
+            if(!getMap().hasEnemies()) {
+                if (getMap().getLevel().getLevel() == Level.MAX_LEVEL) {
+                    getMap().setWin(true);
+                }
+                else getMap().nextLevel();
+                }
+
             return true;
         }
         return false;

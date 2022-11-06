@@ -67,5 +67,53 @@ public abstract class Enemy extends Mobile {
 
     public abstract void update();
 
-    public abstract void move();
+    public void move() {
+        if (steps <= 0) {
+            direction = ai.getDirection();;
+            steps = MAX_STEPS;
+        }
+        if (direction == RIGHT) {
+            int tx = (int) (speed + getBoundary().getX() + getBoundary().getWidth()) / Sprite.SCALED_SIZE;
+            if (!(getMap().getEntityAt(tx, (int) (getBoundary().getY()) / Sprite.SCALED_SIZE, this).collision(this))
+                    && !(getMap().getEntityAt(tx, (int) (getBoundary().getY() + getBoundary().getHeight()) / Sprite.SCALED_SIZE, this).collision(this))) {
+                x += speed;
+                steps -= 1;
+            } else {
+                x = (int) (tx * Sprite.SCALED_SIZE - getBoundary().getWidth() - 2 - 1);
+                steps = 0;
+            }
+        } else if (direction == LEFT) {
+            int tx = (int) (-speed + getBoundary().getX()) / Sprite.SCALED_SIZE;
+            if (!(getMap().getEntityAt(tx, (int) (getBoundary().getY()) / Sprite.SCALED_SIZE, this).collision(this))
+                    && !(getMap().getEntityAt(tx, (int) (getBoundary().getY() + getBoundary().getHeight()) / Sprite.SCALED_SIZE, this).collision(this))) {
+                x -= speed;
+                steps -= 1;
+            } else {
+                x = (tx * Sprite.SCALED_SIZE + Sprite.SCALED_SIZE - 2);
+                steps = 0;
+            }
+        } else if (direction == UP) {
+            int ty = (int) (- speed + getBoundary().getY()) / Sprite.SCALED_SIZE;
+            if (!(getMap().getEntityAt((int) getBoundary().getX() / Sprite.SCALED_SIZE, ty, this).collision(this))
+                    && !(getMap().getEntityAt((int) (getBoundary().getX() + getBoundary().getWidth()) / Sprite.SCALED_SIZE, ty, this).collision(this))) {
+                y -= speed;
+                steps -= 1;
+            } else {
+                y = (int) (ty * Sprite.SCALED_SIZE + Sprite.SCALED_SIZE - 2);
+                steps = 0;
+            }
+        } else if (direction == DOWN) {
+            int ty = (int) (speed + getBoundary().getY() + getBoundary().getHeight()) / Sprite.SCALED_SIZE;
+            if (!(getMap().getEntityAt((int) getBoundary().getX() / Sprite.SCALED_SIZE, ty, this).collision(this))
+                    && !(getMap().getEntityAt((int) (getBoundary().getX() + getBoundary().getWidth()) / Sprite.SCALED_SIZE, ty, this).collision(this))) {
+                y += speed;
+                steps -= 1;
+            } else {
+                y = (int) (ty * Sprite.SCALED_SIZE - getBoundary().getHeight() - 2 - 1);
+                steps = 0;
+            }
+        } else {
+            steps = 0;
+        }
+    }
 }
