@@ -101,64 +101,26 @@ public class avoid extends AI {
                 thread++;
                 // tùy trường hợp thì sẽ xét các hướng KHÔNG THỂ ĐI
                 //  chú ý 4 thay cho -1;
-                switch (this.detectBombinRanger(Xb, Yb) ){
-                    case 0:
-                        if ( Xb - Xe == this.r + 1 ){
-                            canGo[4]=canGo[0]=false;
-                        }else{
-                            //System.out.println("hi");
-                            canGo[4]=canGo[0]= false;
-                        }
-
-                        break;
-                    case 1:
-                        canGo[0]=canGo[2]= false;
-                        break;
-                    case 2:
-                        if ( Ye - Yb == this.r + 1){
-                            canGo[4]=canGo[2]=false;
-                        }else{
-                            canGo[4]=canGo[2]= false;
-
-                        }
-                        break;
-                    case 3:
-                        canGo[1]=canGo[2]= false;
-                        break;
-                    case 4:
-                        if ( Xe - Xb == this.r + 1){
-                            canGo[4]=canGo[1]=false;
-                        }else{
-                            canGo[4]=canGo[1]= false;
-                        }
-                        break;
-                    case 5:
-                        canGo[3]=canGo[1]= false;
-                        break;
-                    case 6:
-                        if ( Yb - Ye == this.r + 1){
-                            canGo[4]=canGo[3]=false;
-                        }else{
-                            canGo[4]=canGo[3]= false;
-                        }
-                        break;
-                    case 7:
-                        canGo[0]=canGo[3]= false;
-                        break;
-                    case 8:
-                        Arrays.fill(canGo, false);
-                        break;
+                switch (this.detectBombinRanger(Xb, Yb)) {
+                    case 0 -> canGo[4] = canGo[0] = false;
+                    case 1 -> canGo[0] = canGo[2] = false;
+                    case 2 -> canGo[4] = canGo[2] = false;
+                    case 3 -> canGo[1] = canGo[2] = false;
+                    case 4 -> canGo[4] = canGo[1] = false;
+                    case 5 -> canGo[3] = canGo[1] = false;
+                    case 6 -> canGo[4] = canGo[3] = false;
+                    case 7 -> canGo[0] = canGo[3] = false;
+                    case 8 -> Arrays.fill(canGo, false);
                 }
             }
-
         }
         for ( int k =0  ; k < canGo.length ; k++){
-            if ( canGo[k]==true ) {
+            if (canGo[k]) {
                 if ( k == 4 ){
                     way.add(-1); // chuyển 4 là -1
                 }
                 else{
-                    way.add(k);
+                    way.add(k+1);
                 }
 
             }
@@ -186,17 +148,13 @@ public class avoid extends AI {
         }
 
         // trường hợp không có đường đi hợp lý
-        // thì sẽ cho ramdo bừa
         if (way.size() == 0 ) {
             return -1;
         }
         // tồn tại đường duy nhất
         if (way.size() == 1){
-            //  System.out.println("di theo huong " + way.get(0) );
             return way.get(0);
         }
-        int x = way.get(random.nextInt(way.size()));
-        return x;
+        return way.get(random.nextInt(way.size()));
     }
-
 }

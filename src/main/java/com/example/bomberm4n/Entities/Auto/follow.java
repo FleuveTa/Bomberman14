@@ -25,8 +25,10 @@ public class follow extends AI{
     public int findDirection() {
         if(player == null)
             return random.nextInt(4);
-
-        int ver = random.nextInt(2);
+        if (Distance.getDistance(enemy, player) > 5) {
+            return com.example.bomberm4n.Entities.Auto.random.rand(1,4);
+        }
+        else {int ver = random.nextInt(2);
         if(ver == 1) {
             int v = RowDirec();
             if(v != -1) {
@@ -34,8 +36,8 @@ public class follow extends AI{
                     enemy.setSpeed(2);
                     enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 2);
                 } else {
-                    enemy.setSpeed(4);
-                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 4);
+                    enemy.setSpeed(3);
+                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 3);
                 }
                 return v;
             }
@@ -50,15 +52,15 @@ public class follow extends AI{
                     enemy.setSpeed(2);
                     enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 2);
                 } else {
-                    enemy.setSpeed(4);
-                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 4);
+                    enemy.setSpeed(3);
+                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 3);
                 }
                 return h;
             } else {
                 return RowDirec();
             }
         }
-
+        }
     }
 
     public int ColDirec() {
