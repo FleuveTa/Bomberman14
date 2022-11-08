@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -26,13 +27,6 @@ public class Sprite {
     protected int _realWidth;
     protected int _realHeight;
     private SpriteSheet _sheet;
-    /*
-    Các sprite không cắt ra từ sheet, kích thước mặc định 32*32
-     */
-    public static Image walll = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/wall1.png")));
-    public static Image grasss = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/touchGrass.png")));
-    public static Image brickk = new Image(Objects.requireNonNull(Sprite.class.getResourceAsStream("/assets/map/brick.png")));
-
     /*
     |--------------------------------------------------------------------------
     | Board sprites
@@ -219,9 +213,7 @@ public class Sprite {
     }
 
     private void setColor(int color) {
-        for (int i = 0; i < _pixels.length; i++) {
-            _pixels[i] = color;
-        }
+        Arrays.fill(_pixels, color);
     }
 
     private void load() {

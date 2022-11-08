@@ -14,13 +14,11 @@ public class SpeedItem extends Item {
 
     @Override
     public boolean collision(Entity e) {
-        if (e instanceof Player && !isPoweredUp())
+        if (e instanceof Player)
         {
             GameSound.playEffectSound(Constants.SOUND_URL[7]);
             int newSpeed = getMap().getBomber().getSpeed() + 1;
             getMap().getBomber().setSpeed(newSpeed);
-            //Map.PLAYER_SPEED += 40;
-            setPoweredUp(true);
             remove = true;
         }
         return false;

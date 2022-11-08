@@ -14,13 +14,12 @@ public class FlameItem extends Item {
 
     @Override
     public boolean collision(Entity e) {
-        if (e instanceof Player && !isPoweredUp())
+        if (e instanceof Player)
         {
             GameSound.playEffectSound(Constants.SOUND_URL[7]);
             int newLength = getMap().getBomber().getFlameLength() + 1;
             getMap().getBomber().setFlameLength(newLength);
             Map.FLAME_LENGTH++;
-            setPoweredUp(true);
             remove = true;
         }
         return false;

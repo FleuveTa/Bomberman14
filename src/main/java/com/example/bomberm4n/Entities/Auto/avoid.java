@@ -24,10 +24,8 @@ public class avoid extends AI {
             return 2;
         else if(player.getXTile() > enemy.getXTile())
             return 1;
-
         return -1;
     }
-
     public int calRow() {
         if(player.getYTile() < enemy.getYTile())
             return 3;

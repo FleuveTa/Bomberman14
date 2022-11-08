@@ -29,6 +29,7 @@ public class Kondoria extends Enemy{
         if(!alive) return;
         alive = false;
         getMap().addPoint(POINT);
+        GameSound.playEffectSound(Constants.SOUND_URL[3]);
     }
 
     @Override

@@ -14,13 +14,12 @@ public class BombItem extends Item {
 
     @Override
     public boolean collision(Entity e) {
-        if (e instanceof Player && !isPoweredUp())
+        if (e instanceof Player)
         {
             GameSound.playEffectSound(Constants.SOUND_URL[7]);
             int newRate = getMap().getBomber().getBombRate() + 1;
             getMap().getBomber().setBombRate(newRate);
             Map.BOMB_AT_TIME++;
-            setPoweredUp(true);
             remove = true;
         }
         return false;

@@ -23,21 +23,19 @@ public class follow extends AI{
     }
 
     public int findDirection() {
-        if(player == null)
-            return random.nextInt(4);
-        if (Distance.getDistance(enemy, player) > 5) {
-            return com.example.bomberm4n.Entities.Auto.random.rand(1,4);
-        }
-        else {int ver = random.nextInt(2);
+        if (AI.getDistance(enemy, player) > 5) {
+            return 1 + random.nextInt(4);
+        } else {
+            int ver = random.nextInt(2);
         if(ver == 1) {
             int v = RowDirec();
             if(v != -1) {
                 if (enemy.getYTile() % 2 == 0) {
+                    enemy.setSpeed(1);
+                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE);
+                } else {
                     enemy.setSpeed(2);
                     enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 2);
-                } else {
-                    enemy.setSpeed(3);
-                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 3);
                 }
                 return v;
             }
@@ -49,19 +47,19 @@ public class follow extends AI{
             int h = ColDirec();
             if(h != -1) {
                 if(enemy.getXTile() % 2 == 0) {
+                    enemy.setSpeed(1);
+                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE);
+                } else {
                     enemy.setSpeed(2);
                     enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 2);
-                } else {
-                    enemy.setSpeed(3);
-                    enemy.setMAX_STEPS(Sprite.SCALED_SIZE / 3);
                 }
                 return h;
             } else {
                 return RowDirec();
             }
         }
-        }
-    }
+
+    }}
 
     public int ColDirec() {
         if(player.getXTile() < enemy.getXTile())

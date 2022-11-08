@@ -93,87 +93,67 @@ public class Boom extends Entity {
     public void addFlame() {
         int length = getMap().getBomber().getFlameLength();
         for (int i = 1; i <= length; i++) {
+            Entity e = getMap().getEntityAt((x + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
+            Flame flame;
             if (i == length) {
-                Entity e = getMap().getEntityAt((x + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x + Sprite.SCALED_SIZE * i, y,
+                flame = new Flame(x + Sprite.SCALED_SIZE * i, y,
                         Sprite.explosion_horizontal_right_last.getFxImage(), getMap(), Flame.RIGHT, true);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
             } else {
-                Entity e = getMap().getEntityAt((x + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x + Sprite.SCALED_SIZE * i, y,
+                flame = new Flame(x + Sprite.SCALED_SIZE * i, y,
                         Sprite.explosion_horizontal.getFxImage(), getMap(), Flame.RIGHT, false);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
+            }
+            if (!e.collision(flame)) {
+                flames.add(flame);
+            } else {
+                break;
             }
         }
         for (int i = 1; i <= length; i++) {
+            Entity e = getMap().getEntityAt((x - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
+            Flame flame;
             if (i == length) {
-                Entity e = getMap().getEntityAt((x - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x - Sprite.SCALED_SIZE * i, y,
+                flame = new Flame(x - Sprite.SCALED_SIZE * i, y,
                         Sprite.explosion_horizontal_left_last.getFxImage(), getMap(), Flame.LEFT, true);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
             } else {
-                Entity e = getMap().getEntityAt((x - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE , y / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x - Sprite.SCALED_SIZE * i, y,
+                flame = new Flame(x - Sprite.SCALED_SIZE * i, y,
                         Sprite.explosion_horizontal.getFxImage(), getMap(), Flame.LEFT, false);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
+            }
+            if (!e.collision(flame)) {
+                flames.add(flame);
+            } else {
+                break;
             }
         }
         for (int i = 1; i <= length; i++) {
+            Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
+            Flame flame;
             if (i == length) {
-                Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x, y + Sprite.SCALED_SIZE * i,
+                flame = new Flame(x, y + Sprite.SCALED_SIZE * i,
                         Sprite.explosion_vertical_down_last.getFxImage(), getMap(), Flame.DOWN, true);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
             } else {
-                Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y + Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x, y + Sprite.SCALED_SIZE * i,
+                flame = new Flame(x, y + Sprite.SCALED_SIZE * i,
                         Sprite.explosion_vertical.getFxImage(), getMap(), Flame.DOWN, false);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
+            }
+            if (!e.collision(flame)) {
+                flames.add(flame);
+            } else {
+                break;
             }
         }
         for (int i = 1; i <= length; i++) {
+            Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
+            Flame flame;
             if (i == length) {
-                Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x, y - Sprite.SCALED_SIZE * i,
+                flame = new Flame(x, y - Sprite.SCALED_SIZE * i,
                         Sprite.explosion_vertical_top_last.getFxImage(), getMap(), Flame.UP, true);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
             } else {
-                Entity e = getMap().getEntityAt(x / Sprite.SCALED_SIZE , (y - Sprite.SCALED_SIZE * i) / Sprite.SCALED_SIZE, null);
-                Flame flame = new Flame(x, y - Sprite.SCALED_SIZE * i,
+                flame = new Flame(x, y - Sprite.SCALED_SIZE * i,
                         Sprite.explosion_vertical.getFxImage(), getMap(), Flame.UP, false);
-                if (!e.collision(flame)) {
-                    flames.add(flame);
-                } else {
-                    break;
-                }
+            }
+            if (!e.collision(flame)) {
+                flames.add(flame);
+            } else {
+                break;
             }
         }
     }

@@ -16,7 +16,6 @@ public class BomGame extends Application {
 
     public static int TIME_INIT;
 
-
     @Override
     public void start(Stage stage) {
         try {

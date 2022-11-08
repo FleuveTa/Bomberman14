@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 
 public class Item extends Tile {
 
-    private boolean isPoweredUp = false;
+   // private boolean isPoweredUp = false;
 
     public Item(int x, int y, Image img, Map map) {
         super(x, y, img, map);
@@ -21,11 +21,11 @@ public class Item extends Tile {
         gc.drawImage(img, x - xOffset, y - yOffset + BomGame.GAME_OFFSET);
     }
 
-    public boolean isPoweredUp() {
-        return isPoweredUp;
-    }
-
-    public void setPoweredUp(boolean poweredUp) {
-        isPoweredUp = poweredUp;
-    }
+//    public boolean isPoweredUp() {
+//        return isPoweredUp;
+//    }
+//
+//    public void setPoweredUp(boolean poweredUp) {
+//        isPoweredUp = poweredUp;
+//    }
 }

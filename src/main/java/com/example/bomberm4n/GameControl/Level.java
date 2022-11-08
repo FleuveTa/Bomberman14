@@ -7,6 +7,7 @@ import com.example.bomberm4n.Entities.Block.Items.SpeedItem;
 import com.example.bomberm4n.Entities.Block.Tile;
 import com.example.bomberm4n.Entities.Block.*;
 import com.example.bomberm4n.Entities.Enemy.Ballon;
+import com.example.bomberm4n.Entities.Enemy.Doll;
 import com.example.bomberm4n.Entities.Enemy.Kondoria;
 import com.example.bomberm4n.Entities.Enemy.Oneal;
 import com.example.bomberm4n.Entities.Player;
@@ -19,13 +20,14 @@ import java.io.FileReader;
 
 public class Level {
 
-    public static final int MAX_LEVEL = 2;
+    public static final int MAX_LEVEL = 3;
 
     private int width, height;
 
     private int level;
 
     private char [][] mapMatrix;
+    public int [][] mapNumMatrix;
 
     private final Map map;
 
@@ -49,6 +51,7 @@ public class Level {
             width = Integer.parseInt(tokens[2]);
             height = Integer.parseInt(tokens[1]);
             mapMatrix = new char[height][width];
+            mapNumMatrix = new int [height][width];
             tiles = new Tile[height][width];
 
             for (int i = 0; i < height; i++) {
@@ -119,6 +122,11 @@ public class Level {
                     case '3'-> {
                         tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
                         map.addMobile(new Kondoria(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 1));
+                        break;
+                    }
+                    case '4'-> {
+                        tiles[i][j] = new Grass(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.grass.getFxImage(), map);
+                        map.addMobile(new Doll(j * Sprite.SCALED_SIZE, i * Sprite.SCALED_SIZE, Sprite.balloom_left1.getFxImage(), map, 2));
                         break;
                     }
                     default -> {
