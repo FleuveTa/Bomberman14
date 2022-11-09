@@ -56,25 +56,22 @@ public class SoundButton extends Button {
     }
 
     public void initialSoundButton() {
-        setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent mouseEvent) {
-                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
-                    setButtonPressedStyle();
-                }
+        setOnMousePressed(mouseEvent -> {
+            if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                setButtonPressedStyle();
             }
         });
 
-        setOnMouseReleased(new EventHandler<MouseEvent>() {
+        setOnMouseReleased(new EventHandler<>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                if(mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
+                if (mouseEvent.getButton().equals(MouseButton.PRIMARY)) {
                     setButtonReleasedStyle();
                 }
             }
         });
 
-        setOnMouseEntered(new EventHandler<MouseEvent>() {
+        setOnMouseEntered(new EventHandler<>() {
             @Override
             public void handle(MouseEvent event) {
                 setEffect(new DropShadow());

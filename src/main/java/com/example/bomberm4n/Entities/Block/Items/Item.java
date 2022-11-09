@@ -20,12 +20,4 @@ public class Item extends Tile {
         int yOffset = getMap().getCamera().getY();
         gc.drawImage(img, x - xOffset, y - yOffset + BomGame.GAME_OFFSET);
     }
-
-//    public boolean isPoweredUp() {
-//        return isPoweredUp;
-//    }
-//
-//    public void setPoweredUp(boolean poweredUp) {
-//        isPoweredUp = poweredUp;
-//    }
 }

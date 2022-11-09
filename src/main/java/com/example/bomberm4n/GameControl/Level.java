@@ -27,8 +27,6 @@ public class Level {
     private int level;
 
     private char [][] mapMatrix;
-    public int [][] mapNumMatrix;
-
     private final Map map;
 
     private Tile[][] tiles;
@@ -51,7 +49,6 @@ public class Level {
             width = Integer.parseInt(tokens[2]);
             height = Integer.parseInt(tokens[1]);
             mapMatrix = new char[height][width];
-            mapNumMatrix = new int [height][width];
             tiles = new Tile[height][width];
 
             for (int i = 0; i < height; i++) {
@@ -150,11 +147,11 @@ public class Level {
         return level;
     }
 
-    public int getRealWidth() {
+    public int getPixelWidth() {
         return width * Sprite.SCALED_SIZE;
     }
 
-    public int getRealHeight() {
+    public int getPixelHeight() {
         return height * Sprite.SCALED_SIZE;
     }
 
@@ -170,12 +167,12 @@ public class Level {
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 if (tiles[i][j] instanceof Brick) {
-                    if (((Brick) tiles[i][j]).isRemove()) {
+                    if (tiles[i][j].isRemove()) {
                         tiles[i][j] = ((Brick) tiles[i][j]).getUnder();
                     }
                 }
                 if (tiles[i][j] instanceof Item) {
-                    if (((Item) tiles[i][j]).isRemove()) {
+                    if (tiles[i][j].isRemove()) {
                         tiles[i][j] = new Grass(tiles[i][j].getX(), tiles[i][j].getY(), Sprite.grass.getFxImage(), map);
                     }
                 }

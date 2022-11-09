@@ -97,7 +97,7 @@ public class Player extends Mobile {
         speed = 2;
         bombAtTime = 1;
         flameLength = 1;
-        Map.PLAYER_SPEED = 3;
+        Map.PLAYER_SPEED = 2;
         Map.BOMB_AT_TIME = 1;
         Map.FLAME_LENGTH = 1;
         alive = true;

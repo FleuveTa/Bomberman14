@@ -17,6 +17,5 @@ public abstract class AI {
                         + (enemy.getYTile() - player.getYTile())
                         * (enemy.getYTile() - player.getYTile()));
     }
-
     public abstract int getDirection();
 }

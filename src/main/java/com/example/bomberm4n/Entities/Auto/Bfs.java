@@ -35,7 +35,7 @@ public class Bfs extends AI{
     }
 
     public void getNumMatrix() {
-        int key = 1;
+        int num = 1;
         char [][]map = m.getLevel().getMaps();
         for (int i = 0 ; i < height ; i++) {
             for ( int j = 0 ; j < width ; j++) {
@@ -43,11 +43,11 @@ public class Bfs extends AI{
                     mapNumMatrix[i][j] = 0;
                 }
                 else if (map[i][j] =='*' || map[i][j] == 'x' || map[i][j] == 'f' || map[i][j] == 'b' || map[i][j] == 's') {
-                    mapNumMatrix[i][j] = key * (-1);
-                    key++;
+                    mapNumMatrix[i][j] = num * (-1);
+                    num++;
                 } else {
-                    this.mapNumMatrix[i][j] = key;
-                    key++;
+                    this.mapNumMatrix[i][j] = num;
+                    num++;
                 }
             }
         }
@@ -58,12 +58,15 @@ public class Bfs extends AI{
         for (int i = 0; i < Brick.brokenBrickX.size(); i++){
             int x = Brick.brokenBrickX.get(i);
             int y = Brick.brokenBrickY.get(i);
-            if (mapNumMatrix [y][x] < 0 ){
+            if (mapNumMatrix [y][x] < 0){
                 mapNumMatrix [y][x] =  mapNumMatrix [y][x] * (-1);
             }
         }
     }
 
+    /** 4 node xung quanh node hiện tại
+     * Nếu âm ~ không đi được thì cho về 0
+     * */
     public void convertNearNodeMatrix() {
         for (int i = 1; i < height - 1; i++) {
             for ( int j = 1; j < width - 1; j++ ) {
@@ -77,7 +80,7 @@ public class Bfs extends AI{
         }
     }
 
-    public void updateMatrix(){
+    public void updateDetectBomMatrix(){
         int r = player.getFlameLength();
         int xe = this.enemy.getXTile();
         int ye = this.enemy.getYTile();
@@ -118,20 +121,19 @@ public class Bfs extends AI{
 
     public int bfs(int start , int end) throws IllegalStateException {
         Queue<Integer> qNode = new LinkedList<Integer>();
-        int [] parent = new int[numberOfNode + 1];
-        boolean [] visted = new boolean[numberOfNode + 1];
+        int[] parent = new int[numberOfNode + 1];
+        boolean[] visited = new boolean[numberOfNode + 1];
         if (start < 0) start *= -1;
         if (end < 0) end *= -1;
-        visted[start] = false;
+        visited[start] = false;
         parent[start] = -1;
         parent[end] = -1;
         qNode.add(start);
-
         while (!qNode.isEmpty()) {
             int currentNode = qNode.poll();
             for (int i = 0; i < 4; i++) {
-                if (!visted[node[currentNode][i]] && node[currentNode][i]!=0) {
-                    visted[node[currentNode][i]] = true;
+                if (!visited[node[currentNode][i]] && node[currentNode][i]!=0) {
+                    visited[node[currentNode][i]] = true;
                     parent[node[currentNode][i]] = currentNode;
                     qNode.add(node[currentNode][i]);
                 }
@@ -152,12 +154,7 @@ public class Bfs extends AI{
 
     public int getDirection() {
         getNumMatrix();
-        for (int i = 0 ; i < height ; i++) {
-            for ( int j = 0 ; j < width ; j++) {
-                System.out.println(mapNumMatrix[i][j]);
-            }
-            }
-        updateMatrix();
+        updateDetectBomMatrix();
         updateDestroy_Brick();
         convertNearNodeMatrix();
         int start = this.mapNumMatrix[enemy.getYTile()][enemy.getXTile()];

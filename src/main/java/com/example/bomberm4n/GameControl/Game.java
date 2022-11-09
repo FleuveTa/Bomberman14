@@ -29,13 +29,10 @@ import static com.example.bomberm4n.BomGame.*;
 
 public class Game {
     private static Map map;
-    private Canvas canvas;
-    private GraphicsContext gc;
-    private Group root;
-    private Scene gameScene;
-    private List<Text> textList;
-    private Pane levelPane;
-    private Scene levelScene;
+    private final Canvas canvas;
+    private final GraphicsContext gc;
+    private final Scene gameScene;
+    private final List<Text> textList;
     private boolean isWin;
     private Text score;
     private Text score2;
@@ -44,12 +41,10 @@ public class Game {
 
     private boolean alive;
     private int score3;
-    Text level;
     Text live;
     private PauseButton pauseButton;
     private SoundButton soundButton;
     public static final int fontSize2 = 20;
-    String url = Objects.requireNonNull(MainScene.class.getResource("/assets/menu/img.png")).toURI().toString();
 
 
     public Game() throws URISyntaxException {
@@ -62,7 +57,7 @@ public class Game {
         textList = new ArrayList<>();
         initScoreBar();
         // Tao root container
-        root = new Group();
+        Group root = new Group();
         root.getChildren().add(canvas);
         root.getChildren().addAll(textList);
         setButton(root);
@@ -72,12 +67,8 @@ public class Game {
         isWin = false;
     }
 
-
     public Scene getGameScene() {
         return gameScene;
-    }
-    public Scene getLevelScene() {
-        return levelScene;
     }
 
 

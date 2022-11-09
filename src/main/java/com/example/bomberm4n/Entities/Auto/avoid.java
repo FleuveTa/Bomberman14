@@ -83,22 +83,13 @@ public class avoid extends AI {
         int Xe = this.enemy.getXTile();
         int Ye = this.enemy.getYTile();
         boolean[] canGo = {true, true,true,true,true};
-
         ArrayList<Integer> way = new ArrayList<Integer>();
-
         int thread =0;
-
-        // duyet toan bo list bom cua bang
         for (int i = 0; i < this.map.getBombs().size() ; i++){
-            // phát hiện bom
             int Xb = this.map.getBombs().get(i).getXTile();
             int Yb = this.map.getBombs().get(i).getYTile();
-
-            // xét những quả bom trong miền xét
             if ( this.detectBombinRanger(Xb, Yb)!=-1 ){
                 thread++;
-                // tùy trường hợp thì sẽ xét các hướng KHÔNG THỂ ĐI
-                //  chú ý 4 thay cho -1;
                 switch (this.detectBombinRanger(Xb, Yb)) {
                     case 0 -> canGo[4] = canGo[0] = false;
                     case 1 -> canGo[0] = canGo[2] = false;
@@ -115,7 +106,7 @@ public class avoid extends AI {
         for ( int k =0  ; k < canGo.length ; k++){
             if (canGo[k]) {
                 if ( k == 4 ){
-                    way.add(-1); // chuyển 4 là -1
+                    way.add(-1);
                 }
                 else{
                     way.add(k+1);
@@ -126,7 +117,6 @@ public class avoid extends AI {
         // nếu ko có nguy  hiểm
         if ( thread == 0 ){
             //  return -1;
-
             int vertical = random.nextInt(2);
             if(vertical == 1) {
                 int v = calRow();

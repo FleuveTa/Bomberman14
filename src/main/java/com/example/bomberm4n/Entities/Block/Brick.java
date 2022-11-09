@@ -21,7 +21,7 @@ public class Brick extends Tile {
 
     private int timeAfter = 20;
 
-    private Tile under; // Các item khi phá Brick sẽ hiện ra
+    private final Tile under; // Các item khi phá Brick sẽ hiện ra
 
     public Brick(int x, int y, Image img, Map map, Tile under) {
         super(x, y, img, map);
